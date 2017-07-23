@@ -1,0 +1,190 @@
+@import "variables";
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.navbar {
+  border-radius: 0;
+  .navbar-header {
+    img {
+      height: 50px;
+      width: 100px;
+    }
+  }
+  ul {
+    li {
+      a {
+        color: $primary-color !important;
+        font-size: 17px;
+        &:hover {
+          color: $btn-text-color !important;
+          cursor: pointer;
+          font-size: 20px;
+          -webkit-transition: 0.2s all ease;
+          -moz-transition: 0.2s all ease;
+          -ms-transition: 0.2s all ease;
+          -o-transition: 0.2s all ease;
+          transition: 0.2s all ease;
+          i {
+            color: $primary-color;
+            -webkit-transition: 1s all ease;
+            -moz-transition: 1s all ease;
+            -ms-transition: 1s all ease;
+            -o-transition: 1s all ease;
+            transition: 1s all ease;
+          }
+        }
+        i {
+          color: $btn-text-color;
+        }
+      }
+    }
+  }
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.alert {
+  margin-top: -15px;
+}
+
+.register {
+  .register-img {
+    background: #fff;
+    background-image: url("images/sign-up.jpg");
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+  }
+
+  input {
+    color: $input-color;
+    font-size: 16px;
+    &::placeholder {
+      color: $placeholder-color;
+    }
+  }
+  button {
+    color: $btn-text-color;
+    font-size: 20px;
+    background-color: $primary-color;
+    &:hover {
+      color: $btn-text-color;
+      background-color: $primary-color-hover;
+      transition: 2s all ease;
+    }
+  }
+}
+
+.sign-in {
+  .sign-in-img {
+    background: #fff;
+    background-image: url("images/sign-in.jpg");
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+  }
+  input {
+    color: $input-color;
+    font-size: 16px;
+    &::placeholder {
+      color: $placeholder-color;
+    }
+  }
+  button {
+    color: $btn-text-color;
+    font-size: 20px;
+    background-color: $primary-color;
+    &:hover {
+      color: $btn-text-color;
+      background-color: $primary-color-hover;
+      transition: 2s all ease;
+    }
+  }
+}
+
+.dashboard {
+  .alert {
+    margin-top: 0;
+    font-size: 20px;
+    color: $span-important;
+  }
+  .wrapper {
+    border: 1px solid black;
+    padding: 0 5%;
+    box-shadow: 0px 5px 10px 5px #888889;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    h1 {
+      font-size: 50px;
+      font-family: cursive;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 0;
+      span {
+        color: $span-important;
+        font-family: cursive;
+      }
+    }
+    ol {
+      li {
+        font-size: 18px;
+        font-weight: bold;
+        .delete-btn {
+          border: 1px solid $btn-text-color;
+          background-color: $span-important;
+          border-radius: 50%;
+          margin-left: 10%;
+          &:hover{
+            color: $span-important;
+            background-color: black;
+            transition: 0.5s all ease;
+          }
+        }
+        .modal-delete {
+
+        }
+        .edit-btn {
+          border: 1px solid $btn-text-color;
+          background-color: $primary-color;
+          border-radius: 50%;
+          &:hover{
+            color: $btn-text-color;
+            background-color: $primary-color;
+            transition: 0.5s all ease;
+          }
+        }
+        .show-hide {
+          border: none;
+          background-color: white;
+        }
+      }
+    }
+    .add-password {
+      margin-bottom: 10%;
+      .add-pass-btn {
+        border-radius: 0;
+        color: $btn-text-color;
+        background-color: $primary-color;
+        &:hover {
+          color: $btn-text-color;
+          background-color: $primary-color-hover;
+          transition: 2s all ease;
+        }
+      }
+    }
+  }
+}
+
