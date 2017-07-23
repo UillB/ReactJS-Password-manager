@@ -18,18 +18,13 @@ export default class RegisterComponent extends React.Component {
             confirmPasswords: true,
             session: JSON.parse(localStorage.getItem("session")) || null,
             validForm: true
-        }
-
-
-        console.log(this.state.users);
+        };
 
         this.createName = this.createName.bind(this);
         this.createEmail = this.createEmail.bind(this);
         this.createPass = this.createPass.bind(this);
         this.confirmPass = this.confirmPass.bind(this);
         this.createUser = this.createUser.bind(this);
-
-        console.log(validator.validate("blablabla"));
     }
 
     componentWillMount() {
@@ -42,27 +37,27 @@ export default class RegisterComponent extends React.Component {
     createName(e) {
         this.setState({
             name: e.target.value
-        })
+        });
     }
 
     createEmail(e) {
         this.setState({
             email: e.target.value,
             validEmail: validator.validate(e.target.value)
-        })
+        });
     }
 
     createPass(e) {
         this.setState({
             password: e.target.value
-        })
+        });
     }
 
     confirmPass(e) {
         this.setState({
             confirmPassword: e.target.value,
             confirmPasswords: e.target.value === this.state.password ? true : false
-        })
+        });
     }
 
     createUser(event) {
@@ -104,14 +99,12 @@ export default class RegisterComponent extends React.Component {
             else {
                 this.setState({
                     isEmailExist: true
-                })
-                console.error("Email is already exist!")
+                });
             }
         } else {
             this.setState({
                 validForm: false
-            })
-            console.error("Fields are uncorrect or passwords")
+            });
         }
     }
 

@@ -34,16 +34,14 @@ export default class DashboardComponent extends React.Component {
     componentWillMount() {
         if (this.state.session && this.state.session.auth) {
             let users = JSON.parse(localStorage.getItem("users"));
-            console.log(this.state.session.userEmail);
             for (let i = 0; i < users.length; i++) {
                 if (this.state.session.userEmail === users[i].email) {
                     this.setState({
                         user: users[i],
                         userPasswords: users[i].password
-                    })
-                }
-            }
-            ;
+                    });
+                };
+            };
         }
         else {
             browserHistory.push('/register');
@@ -77,12 +75,11 @@ export default class DashboardComponent extends React.Component {
                             isPasswordExist: true
                         });
                         return
-                    }
+                    };
                 }
                 user.password.push(this.state.password)
-            }
+            };
         });
-        console.log(users);
         localStorage.removeItem("users");
         localStorage.setItem("users", JSON.stringify(users));
 
@@ -91,7 +88,7 @@ export default class DashboardComponent extends React.Component {
             password: '',
             user: users.find((user) => (userLog === user.email)),
             valid: true
-        })
+        });
     }
 
     deletePass(pass) {
@@ -109,7 +106,7 @@ export default class DashboardComponent extends React.Component {
             this.setState({
                 password: '',
                 user: users.find((user) => (userLog === user.email))
-            })
+            });
         }
         else {
             this.setState({
@@ -129,13 +126,13 @@ export default class DashboardComponent extends React.Component {
             edit: true,
             editPassword: pass,
             editNewPassword: pass
-        })
+        });
     }
 
     updatePass(e) {
         this.setState({
             editNewPassword: e.target.value
-        })
+        });
     }
 
     saveUpdatedPassword() {
@@ -163,7 +160,6 @@ export default class DashboardComponent extends React.Component {
                                 editedPassExist: false
                             });
                         }, 3000)
-                        console.log("Parol uze est!");
                         return
                     }
                 }
@@ -179,7 +175,6 @@ export default class DashboardComponent extends React.Component {
                 user.password = newPasswords;
             }
         });
-        console.log(users);
         localStorage.removeItem("users");
         localStorage.setItem("users", JSON.stringify(users));
         let userLog = this.state.user.email;
@@ -196,39 +191,36 @@ export default class DashboardComponent extends React.Component {
         this.setState({
             showPass: false
         });
-        console.log(pass.replace(/./g, '*'));
     }
 
     showPass(pass) {
         this.setState({
             showPass: true
         });
-        console.log(pass)
-        console.log(this.state.user.password)
     }
 
     showDeleteBtn(){
         this.setState({
             showDeleteText: true
-        })
+        });
     }
 
     hideDeleteBtn(){
         this.setState({
             showDeleteText: false
-        })
+        });
     }
 
     showEditBtn(){
         this.setState({
             showEditText: true
-        })
+        });
     }
 
     hideEditBtn(){
         this.setState({
             showEditText: false
-        })
+        });
     }
 
     render() {
@@ -249,22 +241,27 @@ export default class DashboardComponent extends React.Component {
                                                 <button onClick={this.deletePass.bind(this, pass)}
                                                         className="delete-btn"
                                                         onMouseEnter={this.showDeleteBtn}
-                                                        onMouseLeave={this.hideDeleteBtn}><i className="fa fa-times"></i></button>
+                                                        onMouseLeave={this.hideDeleteBtn}>
+                                                    <i className="fa fa-times"></i>
+                                                </button>
                                                 {this.state.showDeleteText ? <span className="modal-delete">Delete</span> : null}
                                                 <button onClick={this.editPass.bind(this, pass)}
                                                         className="edit-btn"
                                                         onMouseEnter={this.showEditBtn}
-                                                        onMouseLeave={this.hideEditBtn}><i className="fa fa-edit"></i>
+                                                        onMouseLeave={this.hideEditBtn}>
+                                                    <i className="fa fa-edit"></i>
                                                 </button>
                                                 {this.state.showEditText ? <span className="modal-delete">Edit</span> : null}
                                                 {
                                                     this.state.showPass ?
-                                                        <button onClick={this.hidePass.bind(this, pass)} className="show-hide">Hide</button>
+                                                        <button onClick={this.hidePass.bind(this, pass)}
+                                                                className="show-hide">Hide</button>
                                                         : null
                                                 }
                                                 {
                                                     !this.state.showPass ?
-                                                        <button onClick={this.showPass.bind(this, pass)} className="show-hide">Show</button>
+                                                        <button onClick={this.showPass.bind(this, pass)}
+                                                                className="show-hide">Show</button>
                                                         : null
                                                 }
                                             </li>
@@ -313,7 +310,10 @@ export default class DashboardComponent extends React.Component {
                                onChange={this.newPassValue}
                                className="form-control"
                                placeholder="New password"/>
-                        <button onClick={this.addNewPass} className="btn btn-primary col-sm-12 add-pass-btn">Add password</button>
+                        <button onClick={this.addNewPass}
+                                className="btn btn-primary col-sm-12 add-pass-btn">
+                            Add password
+                        </button>
                     </div>
                 </div>
             </div>

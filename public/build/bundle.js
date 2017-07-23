@@ -28220,15 +28220,11 @@ var RegisterComponent = function (_React$Component) {
             validForm: true
         };
 
-        console.log(_this.state.users);
-
         _this.createName = _this.createName.bind(_this);
         _this.createEmail = _this.createEmail.bind(_this);
         _this.createPass = _this.createPass.bind(_this);
         _this.confirmPass = _this.confirmPass.bind(_this);
         _this.createUser = _this.createUser.bind(_this);
-
-        console.log(_emailValidator2.default.validate("blablabla"));
         return _this;
     }
 
@@ -28305,13 +28301,11 @@ var RegisterComponent = function (_React$Component) {
                     this.setState({
                         isEmailExist: true
                     });
-                    console.error("Email is already exist!");
                 }
             } else {
                 this.setState({
                     validForm: false
                 });
-                console.error("Fields are uncorrect or passwords");
             }
         }
     }, {
@@ -28539,9 +28533,6 @@ var SignInComponent = function (_React$Component) {
     }
 
     _createClass(SignInComponent, [{
-        key: 'test',
-        value: function test() {}
-    }, {
         key: 'signInEmail',
         value: function signInEmail(e) {
             this.setState({
@@ -28569,7 +28560,6 @@ var SignInComponent = function (_React$Component) {
 
                         this.state.user.password.map(function (pass) {
                             if (_this2.state.password === pass) {
-                                console.log("Correct pass");
                                 localStorage.setItem("session", JSON.stringify({
                                     auth: true,
                                     userEmail: _this2.state.user.email
@@ -28581,7 +28571,6 @@ var SignInComponent = function (_React$Component) {
                                 _this2.setState({
                                     isFormValid: false
                                 });
-                                console.log("Uncorrect pass");
                             }
                         });
                     });
@@ -28589,13 +28578,8 @@ var SignInComponent = function (_React$Component) {
                     this.setState({
                         isFormValid: false
                     });
-                    console.error("Uncorrect email");
                 }
             }
-            // this.setState({
-            //     isStorageCLear: true
-            // })
-            // console.log("Please sign up firstly!");
         }
     }, {
         key: 'render',
@@ -28603,7 +28587,6 @@ var SignInComponent = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'container sign-in' },
-                this.state.user.password,
                 _react2.default.createElement('div', { className: 'sign-in-img' }),
                 _react2.default.createElement(
                     'form',
@@ -28747,16 +28730,14 @@ var DashboardComponent = function (_React$Component) {
         value: function componentWillMount() {
             if (this.state.session && this.state.session.auth) {
                 var users = JSON.parse(localStorage.getItem("users"));
-                console.log(this.state.session.userEmail);
                 for (var i = 0; i < users.length; i++) {
                     if (this.state.session.userEmail === users[i].email) {
                         this.setState({
                             user: users[i],
                             userPasswords: users[i].password
                         });
-                    }
-                }
-                ;
+                    };
+                };
             } else {
                 _reactRouter.browserHistory.push('/register');
             }
@@ -28793,12 +28774,11 @@ var DashboardComponent = function (_React$Component) {
                                 isPasswordExist: true
                             });
                             return;
-                        }
+                        };
                     }
                     user.password.push(_this2.state.password);
-                }
+                };
             });
-            console.log(users);
             localStorage.removeItem("users");
             localStorage.setItem("users", JSON.stringify(users));
 
@@ -28891,7 +28871,6 @@ var DashboardComponent = function (_React$Component) {
                                     editedPassExist: false
                                 });
                             }, 3000);
-                            console.log("Parol uze est!");
                             return;
                         }
                     }
@@ -28906,7 +28885,6 @@ var DashboardComponent = function (_React$Component) {
                     user.password = newPasswords;
                 }
             });
-            console.log(users);
             localStorage.removeItem("users");
             localStorage.setItem("users", JSON.stringify(users));
             var userLog = this.state.user.email;
@@ -28926,7 +28904,6 @@ var DashboardComponent = function (_React$Component) {
             this.setState({
                 showPass: false
             });
-            console.log(pass.replace(/./g, '*'));
         }
     }, {
         key: 'showPass',
@@ -28934,8 +28911,6 @@ var DashboardComponent = function (_React$Component) {
             this.setState({
                 showPass: true
             });
-            console.log(pass);
-            console.log(this.state.user.password);
         }
     }, {
         key: 'showDeleteBtn',
@@ -29035,12 +29010,14 @@ var DashboardComponent = function (_React$Component) {
                                 ) : null,
                                 _this5.state.showPass ? _react2.default.createElement(
                                     'button',
-                                    { onClick: _this5.hidePass.bind(_this5, pass), className: 'show-hide' },
+                                    { onClick: _this5.hidePass.bind(_this5, pass),
+                                        className: 'show-hide' },
                                     'Hide'
                                 ) : null,
                                 !_this5.state.showPass ? _react2.default.createElement(
                                     'button',
-                                    { onClick: _this5.showPass.bind(_this5, pass), className: 'show-hide' },
+                                    { onClick: _this5.showPass.bind(_this5, pass),
+                                        className: 'show-hide' },
                                     'Show'
                                 ) : null
                             );
@@ -29113,7 +29090,8 @@ var DashboardComponent = function (_React$Component) {
                             placeholder: 'New password' }),
                         _react2.default.createElement(
                             'button',
-                            { onClick: this.addNewPass, className: 'btn btn-primary col-sm-12 add-pass-btn' },
+                            { onClick: this.addNewPass,
+                                className: 'btn btn-primary col-sm-12 add-pass-btn' },
                             'Add password'
                         )
                     )
@@ -29484,7 +29462,6 @@ var App = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var i = false;
             return _react2.default.createElement(
                 'div',
                 null,

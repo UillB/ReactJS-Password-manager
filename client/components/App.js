@@ -9,7 +9,7 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             session: JSON.parse(localStorage.getItem("session")) || null
-        }
+        };
         this.logOut = this.logOut.bind(this);
     }
 
@@ -17,13 +17,12 @@ export default class App extends React.Component {
         event.preventDefault();
         this.setState({
             session: {auth: false, userEmail: ''}
-        })
+        });
         localStorage.setItem("session", JSON.stringify({auth: false, userEmail: ''}));
         browserHistory.push('/register');
     }
 
     render() {
-        let i = false;
         return (
             <div>
                 <nav className="navbar navbar-inverse">

@@ -19,20 +19,16 @@ export default class SignInComponent extends React.Component {
         this.signIn = this.signIn.bind(this);
     }
 
-    test() {
-
-    }
-
     signInEmail(e) {
         this.setState({
             email: e.target.value
-        })
+        });
     }
 
     signInPass(e) {
         this.setState({
             password: e.target.value
-        })
+        });
     }
 
     signIn(event) {
@@ -45,41 +41,33 @@ export default class SignInComponent extends React.Component {
                 }, function () {
                     this.state.user.password.map((pass) => {
                         if (this.state.password === pass) {
-                            console.log("Correct pass")
                             localStorage.setItem("session", JSON.stringify({
                                 auth: true,
                                 userEmail: this.state.user.email
-                            }))
+                            }));
                             setTimeout(() => {
                                 browserHistory.push('/dashboard');
-                            })
+                            });
                         }
                         else {
                             this.setState({
                                 isFormValid: false
-                            })
-                            console.log("Uncorrect pass")
+                            });
                         }
-                    })
-                })
+                    });
+                });
             }
             else {
                 this.setState({
                     isFormValid: false
-                })
-                console.error("Uncorrect email");
+                });
             }
         }
-        // this.setState({
-        //     isStorageCLear: true
-        // })
-        // console.log("Please sign up firstly!");
     }
 
     render() {
         return (
             <div className="container sign-in">
-                {this.state.user.password}
                 <div className="sign-in-img"></div>
                 <form>
                     <div className="input-group">

@@ -34,7 +34,6 @@ module.exports = {
                         includePaths: ["absolute/path/a", "absolute/path/b"]
                     }
                 }]
-                // loader: "style-loader!css-loader!sass-loader"
             },
             {
                 test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
