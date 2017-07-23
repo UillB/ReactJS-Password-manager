@@ -10,7 +10,6 @@ export default class App extends React.Component {
         this.state = {
             session: JSON.parse(localStorage.getItem("session")) || null
         };
-        this.logOut = this.logOut.bind(this);
     }
 
     logOut(event) {
@@ -36,7 +35,7 @@ export default class App extends React.Component {
                         <ul className="nav navbar-nav navbar-right">
                             <li><Link to="/sign-in"><i className="fa fa-sign-in"></i> Sign In</Link></li>
                             <li><Link to="/register"><i className="fa fa-user-circle"></i> Sign up</Link></li>
-                            <li><Link onClick={this.logOut}><i className="fa fa-arrow-circle-right"></i> Sign out</Link>
+                            <li><Link onClick={this.logOut.bind(this)}><i className="fa fa-arrow-circle-right"></i> Sign out</Link>
                             </li>
                         </ul>
                     </div>

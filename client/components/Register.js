@@ -19,12 +19,6 @@ export default class RegisterComponent extends React.Component {
             session: JSON.parse(localStorage.getItem("session")) || null,
             validForm: true
         };
-
-        this.createName = this.createName.bind(this);
-        this.createEmail = this.createEmail.bind(this);
-        this.createPass = this.createPass.bind(this);
-        this.confirmPass = this.confirmPass.bind(this);
-        this.createUser = this.createUser.bind(this);
     }
 
     componentWillMount() {
@@ -120,7 +114,7 @@ export default class RegisterComponent extends React.Component {
                                className="form-control"
                                placeholder="Name"
                                value={this.state.name}
-                               onChange={this.createName}/>
+                               onChange={this.createName.bind(this)}/>
                     </div>
                     <div className="input-group">
                         <span className="input-group-addon"><i className="fa fa-envelope"></i></span>
@@ -129,7 +123,7 @@ export default class RegisterComponent extends React.Component {
                                className="form-control"
                                placeholder="Email"
                                value={this.state.email}
-                               onChange={this.createEmail}/>
+                               onChange={this.createEmail.bind(this)}/>
                     </div>
                     {
                         this.state.validEmail ? null :
@@ -150,7 +144,7 @@ export default class RegisterComponent extends React.Component {
                                className="form-control"
                                placeholder="Password"
                                value={this.state.password}
-                               onChange={this.createPass}/>
+                               onChange={this.createPass.bind(this)}/>
                     </div>
                     <div className="input-group">
                         <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
@@ -159,7 +153,7 @@ export default class RegisterComponent extends React.Component {
                                className="form-control"
                                placeholder="Confirm password"
                                value={this.state.confirmPassword}
-                               onChange={this.confirmPass}/>
+                               onChange={this.confirmPass.bind(this)}/>
                     </div>
                     {
                         this.state.confirmPasswords ? null :
@@ -170,10 +164,10 @@ export default class RegisterComponent extends React.Component {
                     {
                         this.state.validForm ? null :
                             <div className="alert alert-danger">
-                                Something wrong with your fields. Seems like of them is <strong>empty</strong>.
+                                Something wrong with your fields. Seems like of them is empty or invalid<strong>empty</strong>.
                             </div>
                     }
-                    <button className="btn btn-default col-sm-12" onClick={this.createUser}>Sign up</button>
+                    <button className="btn btn-default col-sm-12" onClick={this.createUser.bind(this)}>Sign up</button>
                 </form>
             </div>
         )

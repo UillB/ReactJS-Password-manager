@@ -14,9 +14,6 @@ export default class SignInComponent extends React.Component {
             isStorageCLear: false,
             session: JSON.parse(localStorage.getItem("session")) || null
         };
-        this.signInEmail = this.signInEmail.bind(this);
-        this.signInPass = this.signInPass.bind(this);
-        this.signIn = this.signIn.bind(this);
     }
 
     signInEmail(e) {
@@ -77,7 +74,7 @@ export default class SignInComponent extends React.Component {
                                className="form-control"
                                placeholder="Email"
                                value={this.state.email}
-                               onChange={this.signInEmail}/>
+                               onChange={this.signInEmail.bind(this)}/>
                     </div>
                     <div className="input-group">
                         <span className="input-group-addon"><i className="fa fa-envelope"></i></span>
@@ -86,7 +83,7 @@ export default class SignInComponent extends React.Component {
                                className="form-control"
                                placeholder="Password"
                                value={this.state.password}
-                               onChange={this.signInPass}/>
+                               onChange={this.signInPass.bind(this)}/>
                     </div>
                     {
                         this.state.isFormValid ? null :
@@ -100,7 +97,7 @@ export default class SignInComponent extends React.Component {
                                 <strong>Sign up</strong> firstly please.
                             </div>
                     }
-                    <button className="btn btn-primary col-sm-12" onClick={this.signIn}>Sign in</button>
+                    <button className="btn btn-primary col-sm-12" onClick={this.signIn.bind(this)}>Sign in</button>
                 </form>
             </div>
         )

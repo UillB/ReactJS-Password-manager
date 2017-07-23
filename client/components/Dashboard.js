@@ -19,16 +19,6 @@ export default class DashboardComponent extends React.Component {
             isPasswordLast: false,
             editedPassExist: false
         };
-
-        this.newPassValue = this.newPassValue.bind(this);
-        this.addNewPass = this.addNewPass.bind(this);
-        this.editPass = this.editPass.bind(this);
-        this.updatePass = this.updatePass.bind(this);
-        this.saveUpdatedPassword = this.saveUpdatedPassword.bind(this);
-        this.showDeleteBtn = this.showDeleteBtn.bind(this);
-        this.hideDeleteBtn = this.hideDeleteBtn.bind(this);
-        this.showEditBtn = this.showEditBtn.bind(this);
-        this.hideEditBtn = this.hideEditBtn.bind(this);
     }
 
     componentWillMount() {
@@ -75,7 +65,7 @@ export default class DashboardComponent extends React.Component {
                             isPasswordExist: true
                         });
                         return
-                    };
+                    }
                 }
                 user.password.push(this.state.password)
             };
@@ -187,13 +177,13 @@ export default class DashboardComponent extends React.Component {
         });
     }
 
-    hidePass(pass) {
+    hidePass() {
         this.setState({
             showPass: false
         });
     }
 
-    showPass(pass) {
+    showPass() {
         this.setState({
             showPass: true
         });
@@ -240,15 +230,15 @@ export default class DashboardComponent extends React.Component {
                                                 {this.state.showPass ? pass : pass.replace(/./g, '*') }
                                                 <button onClick={this.deletePass.bind(this, pass)}
                                                         className="delete-btn"
-                                                        onMouseEnter={this.showDeleteBtn}
-                                                        onMouseLeave={this.hideDeleteBtn}>
+                                                        onMouseEnter={this.showDeleteBtn.bind(this)}
+                                                        onMouseLeave={this.hideDeleteBtn.bind(this)}>
                                                     <i className="fa fa-times"></i>
                                                 </button>
                                                 {this.state.showDeleteText ? <span className="modal-delete">Delete</span> : null}
                                                 <button onClick={this.editPass.bind(this, pass)}
                                                         className="edit-btn"
-                                                        onMouseEnter={this.showEditBtn}
-                                                        onMouseLeave={this.hideEditBtn}>
+                                                        onMouseEnter={this.showEditBtn.bind(this)}
+                                                        onMouseLeave={this.hideEditBtn.bind(this)}>
                                                     <i className="fa fa-edit"></i>
                                                 </button>
                                                 {this.state.showEditText ? <span className="modal-delete">Edit</span> : null}
@@ -293,9 +283,9 @@ export default class DashboardComponent extends React.Component {
                             <div className="input-group col-sm-3">
                                 <input type="text"
                                        value={this.state.editNewPassword}
-                                       onChange={this.updatePass}
+                                       onChange={this.updatePass.bind(this)}
                                        className="form-control"/>
-                                <button onClick={this.saveUpdatedPassword} className="btn btn-primary col-sm-12 add-pass-btn">Save new password</button>
+                                <button onClick={this.saveUpdatedPassword.bind(this)} className="btn btn-primary col-sm-12 add-pass-btn">Save new password</button>
                             </div> : null
                     }
                     {
@@ -307,10 +297,10 @@ export default class DashboardComponent extends React.Component {
                     <div className="input-group col-sm-3 add-password">
                         <input type="text"
                                value={this.state.password}
-                               onChange={this.newPassValue}
+                               onChange={this.newPassValue.bind(this)}
                                className="form-control"
                                placeholder="New password"/>
-                        <button onClick={this.addNewPass}
+                        <button onClick={this.addNewPass.bind(this)}
                                 className="btn btn-primary col-sm-12 add-pass-btn">
                             Add password
                         </button>
