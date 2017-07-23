@@ -6,7 +6,7 @@ React application that demonstrates ReactJS + Webpack + Babel;
 * Git
 * Node v6
 * NPM v3
-To run the app locally:
+# To run the app locally:
 
 ```bash
 git clone https://github.com/UillB/ReactJS-Password-manager.git
@@ -15,7 +15,7 @@ npm install
 npm start
 open http://localhost:8080
 ```
-#Project structure
+# Project structure
 
 After creation, your project should like this:
 
@@ -45,7 +45,7 @@ ReactJS-Password-manager/
 ```
 
 
-#Available Scripts
+# Available Scripts
 In the project directory you can run:
 
 ### `npm start`
@@ -53,12 +53,12 @@ In the project directory you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:8080](http://localhost:3000) to view it in the browser.
 
-#Languages & tools
+# Languages & tools
 
-#HTML
+# HTML
 * HTML5
 
-#Javascript
+# Javascript
 * ES6.
 * BabelJS for compiling ES6 in ES5.
 * Webpack v3
